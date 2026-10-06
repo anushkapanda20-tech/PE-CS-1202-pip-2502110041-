@@ -1,0 +1,27 @@
+
+1. Reading Error Messages (Tracebacks)
+ * TypeError: Occurs when performing an invalid operation on incompatible data types, such as attempting to add an integer (int) to a string (str) (25 + "30").
+ * Type Conversion (Casting):
+   * 25 + int("30") \rightarrow Converts "30" to an int, evaluating to 55.
+   * str(25) + "30" \rightarrow Converts 25 to a str, evaluating to "2530".
+ * Handling Input: The input() function always returns a string (str). To perform mathematical operations on user input, wrap it with int():
+   n = int(input("How many? "))
+
+2. Operators & Division Mechanics
+ * Standard Arithmetic Operators: +, -, *, /.
+ * Standard Division (/): Always returns a float, even if the result is a whole number (e.g., 60 / 4 evaluates to 15.0).
+ * Comparison Operators: ==, !=, <, >, <=, >=.
+3. Pallet Mathematics: // and %
+Floor Division (//) — "Full Boxes"
+ * Performs integer division by dividing and throwing away the fraction/remainder to return guaranteed full integer counts.
+ * Example: 137 // 12 evaluates to 11 (11 full boxes).
+Modulo (%) — "Loose Parts"
+ * Calculates the remainder left over after integer division.
+ * Example: 137 % 12 evaluates to 5 (5 loose parts remaining).
+Mathematical Audit Equation
+Whenever you use // and %, you can verify your results using the formula:
+
+ * Example: (11 \times 12) + 5 = 132 + 5 = 137.
+ * Time Conversion Example: 130 minutes converted into hours and minutes:
+   * Hours: 130 // 60 \rightarrow 2 hours
+   * Minutes: 130 % 60 \rightarrow 10 minutes
