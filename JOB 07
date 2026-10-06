@@ -1,0 +1,21 @@
+
+1. Data Types — The Materials Catalogue
+Data types are the raw materials of Python code. Using the wrong type can cause errors or unexpected program behavior.
+
+Type Verification Tool
+ * type() Function: Used as a spectrometer to inspect and verify the exact data type of any variable or literal.
+   print(type(25.0))  # Output: <class 'float'>
+print(type("25"))   # Output: <class 'str'>
+
+2. Variable Naming Rules & Legal Labels
+Reserved Words (Keywords)
+Keywords are Python's built-in tool names and cannot be used as variable names.
+ * Common keywords include: if, else, elif, for, while, in, True, False, and, or, not, def, return, import.
+Rules for Legal Variable Names
+ * Allowed Characters: Letters, digits, and underscores (_).
+ * Must NOT start with a digit: e.g., 2nd_shift is illegal.
+ * Must NOT be a reserved keyword: e.g., for is illegal.
+ * Naming Convention: Use lowercase with underscores (snake_case) and clear, descriptive names (e.g., part_count).
+3. Key Takeaways
+ * Verify, Don't Guess: Use print(type(x)) whenever you are unsure of a literal's or variable's data type.
+ * Quotes Make Strings: Surrounding a number with quotes (e.g., "25") converts it into a str, changing how operations like addition behave.
