@@ -1,11 +1,8 @@
 🐍 Job 2 — Logic You Can Touch
 
-Python Notes | Loops, Conditions & Variables
+| Loops, Conditions & Variables
 
 > Core idea: Programs become useful when they can repeat actions, make decisions, and store information.
-
-
-
 
 ---
 
@@ -37,8 +34,6 @@ Automate repeated operations
 
 Manufacturing example:
 If a machine performs the same stamping operation on 500 blanks, a loop can represent those 500 cycles.
-
-
 ---
 
 2. for Loop
@@ -241,22 +236,7 @@ The logic stays the same; only the way we write it changes.
 
 
 ---
-
-10. Important Takeaways
-
-🔁 Loop
-
-Repeats an operation.
-
-🔀 Condition
-
-Makes a decision.
-
-📦 Variable
-
-Stores information.
-
-Together:
+IMPORTANT TAKEAWAYS:
 
 VARIABLE → stores data
      ↓
