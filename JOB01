@@ -1,1 +1,109 @@
+Job 1 — Python: From Blocks to Thinking
+1. Introduction
 
+Python is a high-level, text-based programming language used to give instructions to computers. Before writing Python code, it is important to learn how to think logically and arrange instructions in the correct order.
+For a Production Engineer, programming can help with:
+Analysing production and cycle-time data
+Managing quality records
+Performing calculations
+Automating repetitive tasks
+
+
+2. Algorithm
+
+An algorithm is a finite, step-by-step procedure used to solve a problem or perform a task.
+Example: Manufacturing Process
+
+Raw Material
+     ↓
+Cutting
+     ↓
+Drilling
+     ↓
+Finishing
+     ↓
+Inspection
+     ↓
+Finished Part
+
+Characteristics of an Algorithm
+Clear – each step is understandable.
+Ordered – steps follow a logical sequence.
+Finite – it eventually ends.
+Unambiguous – each step has one clear meaning.
+Effective – it should solve the intended problem.
+An algorithm is like a recipe for solving a problem.
+
+
+3. Sequence
+
+A sequence is a set of instructions performed in a particular order.
+Example: Making Tea
+
+Add tea leaves & spices
+        ↓
+Boil water
+        ↓
+Add milk & sugar
+        ↓
+Simmer
+        ↓
+Strain into cup
+        ↓
+Serve
+
+If the order is changed, the final result may also change.
+Programming works in the same way: instructions are executed according to their sequence.
+
+
+4. Input → Process → Output
+
+A basic program can be understood using the IPO model.
+Stage
+Meaning
+Example
+Input
+Data given to the program
+Number of parts = 100
+Process
+Operations performed
+Calculate defective parts
+Output
+Final result
+Defective parts = 5
+Manufacturing Example
+
+Raw Material → Manufacturing Operations → Finished Part
+   Input              Process                Output
+
+
+5. Scratch and Programming
+
+Scratch is a block-based programming environment used to learn programming concepts.
+Instead of typing instructions, users connect visual blocks to create programs.
+Scratch helps understand:
+
+Sequence
+Events
+Input and output
+Conditions
+Loops
+Variables
+Scratch Blocks
+      ↓
+Programming Logic
+      ↓
+Python Code
+
+Later, these concepts can be expressed using Python code.
+
+
+6. Process Planning and Programming
+
+There is a strong connection between process planning and programming.
+A process planner tells a worker or machine what operations to perform and in what order.
+A programmer tells a computer what instructions to execute and in what order.
+Process Planning
+Material → Operation 1 → Operation 2 → Operation 3 → Product
+Programming
+Input → Instruction 1 → Instruction 2 → Instruction 3 → Output
