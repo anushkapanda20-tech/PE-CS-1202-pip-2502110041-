@@ -1,0 +1,26 @@
+
+1. From Visual Blocks to Pure Python Code
+The visual EduBlocks/Scratch visual blocks are scaffolding to understand logic. In pure Python, program flow and structure are defined by text and indentation.
+Block Logic vs. Pure Python Equivalent
+# Initialize variable
+count = 0
+
+# Loop repeat 5 times
+for i in range(5):
+    count += 1
+    print("parts made:", count)
+
+Key Concept: The blocks do not run the program; the underlying Python code does.
+2. Core Python Rules & Pitfalls to Remember
+ * range(n) Starts at 0:
+   * range(4) generates four numbers: 0, 1, 2, 3 (it does not end at 4 or start at 1).
+ * String Concatenation vs. Addition:
+   * "25" + "30" evaluates to "2530" (combines text strings).
+   * 25 + 30 evaluates to 55 (numerical addition).
+ * Indentation Defines Structure:
+   * Indented lines inside a block (such as after a for loop or if statement) indicate code that belongs inside that logic block.
+   * Indentation in Python replaces the visual snap-together frames used in block coding.
+3. Key Developer Habits
+ * Dry Running / First Article Inspection: Predict the exact output of a program in your head or on paper before running it.
+ * Habit Loop: Predict the output \rightarrow Run the code \rightarrow Inspect the result.
+
