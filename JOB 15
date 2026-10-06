@@ -1,0 +1,24 @@
+
+1. The Container Yard Summary
+Python offers three primary containers for grouping data, each suited for specific engineering needs:
+2. Tuples — The Sealed Record
+ * Immutable (Frozen at Creation): Elements cannot be modified, added, or assigned after definition.
+   SPEC = (24.95, 25.05)   # Sealed lower and upper limits
+SPEC[0] = 24.00         # TypeError: 'tuple' object does not support item assignment
+
+ * Tuple Unpacking: Assign components directly to multiple variables in one line:
+   lower, upper = SPEC     # lower gets 24.95, upper gets 25.05
+
+ * Guaranteed Safety: Immutability protects calibration values and drawing specs from being modified by accident.
+3. Sets — The No-Duplicates Bin
+ * Unique Elements Only: Automatically eliminates duplicate values upon creation.
+   shift = ["D01", "D07", "D01", "D03"]
+distinct_faults = set(shift)  # {'D01', 'D07', 'D03'} — duplicates vanish!
+print(len(set(shift)))        # Output: 3 (count of unique distinct faults)
+
+ * Instant Membership Testing: Efficiently answers questions like "Which distinct codes occurred?" or "Is defect X present?" regardless of container size.
+4. Key Takeaways
+ * Classification Split:
+   * Things you CAN change (Mutable): list, set
+   * Things you CANNOT change (Immutable): str, tuple
+ * Choosing the Right Container: Selecting the appropriate container structure enforces constraints at the language level rather than relying on manual checks.
