@@ -1,5 +1,6 @@
 
 1. The String Toolset
+
 Formatting is not decoration—it provides legibility and safety for shop-floor reporting.
  * .strip()
    * What it does: Trims whitespace from both ends of a string.
@@ -35,7 +36,9 @@ row = ",".join(fields)      # 'PE-0137,25.02,ACCEPT'
 # Split CSV string back into list
 back = row.split(",")        # ['PE-0137', '25.02', 'ACCEPT']
 
+
 2. Decoding Format Specs (f"{value:>10.2f}")
+
 Format specifications align and structure text into readable report columns.
  * Structure: f"{value: [alignment][width][,][.precision][type]}"
  * Alignment (> / < / ^):
@@ -49,7 +52,10 @@ Format specifications align and structure text into readable report columns.
    * f specifies a fixed-point floating-number.
    * d specifies a whole number integer.
    * % displays the value as a percentage.
+
+
 3. Practical Format Spec Examples
+
  * Left-Aligned Label:
    f"{tag:<12}"       # Label left-aligned, width 12
 
