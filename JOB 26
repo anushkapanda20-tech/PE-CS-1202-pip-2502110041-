@@ -1,7 +1,11 @@
 1. What is Regular Expression (Regex)?
+
  * A regular expression acts like a profile gauge for text—it describes the shape a valid part code, reading, or date must have and checks string lines against it.
  * When to use: Used when standard .split() gives up or breaks due to inconsistent, messy text formats.
+
+
 2. The Gauge Tokens (Basic Regex Syntax)
+
  * \d
    * Meaning: Any single digit (0–9).
    * Example: \d\d matches 42.
@@ -19,7 +23,10 @@
  * \.
    * Meaning: A literal full stop (period).
    * Note: A bare . means "any character", so it must be escaped with \ to match an actual dot.
+
+
 3. Core re Module Functions
+
 import re
 
 # 1. Full Match Validation (Checks if the ENTIRE string fits the gauge)
@@ -34,7 +41,9 @@ re.split(r"\s+", line)                # Splits line on any sequence of whitespac
 # 4. Regex Substitution
 re.sub(r"\s+", " ", line)              # Squashes runs of whitespace down to a single space
 
+
 4. Key Rules and Pitfalls
+
  * The Raw String r"" Prefix:
    * Always prefix regex strings with r (e.g., r"\d+").
    * This tells Python to pass backslashes directly to the regex engine without trying to interpret escape characters first.
