@@ -1,0 +1,21 @@
+1. Persistence & The with Block
+Until now, program data disappeared when execution stopped. File handling introduces persistence—reading from and writing to disk.
+Why Use the with Block?
+ * The with statement automatically manages file closing.
+ * The file is closed the moment the block ends, whether it finishes normally or throws an exception.
+ * This enforces the rule: you cannot walk off the floor still holding the tool.
+2. Reading Files: Three Ways
+with open("production_log.txt") as f:  # Mode 'r' is the default
+    for line in f:
+        line = line.strip()            # Clean whitespace/newlines
+        if not line:
+            continue                   # Skip blank lines
+        code, dia, shift = line.split(",")
+        print(code.strip(), float(dia))
+
+ * for line in f: (Best Practice): Processes one line at a time. Works efficiently for files of any size (even multi-gigabyte logs) without overloading RAM.
+ * f.readlines(): Reads all lines into a list of strings. Fine for small files.
+ * f.read(): Reads the entire file into one single string. Suitable only for small files.
+
+3. Critical Warning: The Dangerous Write Mode ('w')
+> The Rule That Saves Careers: Mode 'w' truncates (wipes) a file the moment it is opened—not when you write, and not when you close. Opening an existing log with 'w' to "check something" erases the file immediately. Never open a file for writing unless replacing its entire contents is exactly what you intend to do.
