@@ -1,0 +1,28 @@
+
+1. Dictionaries — Key-Value Mapping (key -> value)
+A dictionary is a lookup catalogue that finds items by name (key) instead of position/address (index).
+# Definition using curly braces {} with key: value pairs
+stock = {
+    "PE-26-0137": 42,
+    "PE-26-0001": 7,
+    "PE-26-0345": 130
+}
+
+2. Handling Missing Keys & Traceback Species #5 (KeyError)
+ * KeyError: Occurs when attempting to look up a key that does not exist in the dictionary using bracket notation (e.g., stock["PE-99-XXXX"]).
+Two Ways to Prevent KeyError
+ * The Check First Approach (in Keyword):
+   if "PE-26-0345" in stock:
+    print("In stock")
+
+ * The Safe Ask (.get() Method):
+   stock.get("PE-99-XXXX", 0)  # Returns default value (0) if key is missing instead of crashing
+
+4. Key Rules for Dictionary Keys
+ * Keys MUST be Unique: A catalogue cannot have two conflicting cards for the same part number.
+ * Keys MUST be Unchangeable (Immutable):
+   * Allowed as Keys: Strings (str), numbers (int/float), and tuples (tuple) because they are immutable.
+   * NOT Allowed as Keys: Lists (list) cannot be keys because they are mutable.
+5. Key Takeaways
+ * Concept Relationship: A set is essentially a dictionary that forgot its values—it stores only unique, immutable keys.
+ * Count Dictionary Pattern: Building a dictionary to count frequencies (e.g., defect tallying) is one of the most widely used industrial patterns in Python.
