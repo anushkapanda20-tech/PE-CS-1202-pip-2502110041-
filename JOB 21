@@ -1,0 +1,29 @@
+1. The Machine Lifecycle (Four Events, Three Dunders)
+Every object in Python lives a lifecycle similar to a machine on a shop floor:
+2. Code Implementation — Special Magic (Dunder) Methods
+class Lathe:
+    def __init__(self, tag, max_rpm=2000):
+        self.tag = tag[span_12](start_span)[span_12](end_span)
+        self._max_rpm = max_rpm[span_13](start_span)[span_13](end_span)
+        self._rpm = 0[span_14](start_span)[span_14](end_span)
+        self._parts = 0[span_15](start_span)[span_15](end_span)
+        print(f"{tag} commissioned, {max_rpm} rpm rated")  # Commissioning log[span_16](start_span)[span_16](end_span)
+
+    # The Nameplate (Human-Readable String Representation)
+    def __str__(self):
+        return f"Lathe {self.tag} | {self._rpm} rpm | {self._parts} parts[span_17](start_span)"[span_17](end_span)
+
+    # The Disposal Procedure (Cleanup on Object Destruction)
+    def __del__(self):
+        print(f"{self.tag} decommissioned after {self._parts} parts")[span_18](start_span)[span_18](end_span)
+
+Execution & Usage Example
+L1 = Lathe("L-01")       # Output: "L-01 commissioned, 2000 rpm rated[span_19](start_span)"[span_19](end_span)
+print(L1)               # Output: "Lathe L-01 | 0 rpm | 0 parts[span_20](start_span)"[span_20](end_span)
+del L1                  # Output: "L-01 decommissioned after 0 parts[span_21](start_span)"[span_21](end_span)
+
+3. Key Concepts & Warnings
+ * Why __str__ Matters: Without __str__, printing an object outputs unhelpful default text like <__main__.Lathe object at 0x7f3a2c1b40> (the memory location). __str__ replaces this with a clean, human-readable nameplate.
+ * Warning About __del__:
+   * Writing del L1 removes the variable name reference. Python decides when to actually destroy the object and trigger __del__ (when no names point to it remaining).
+   * __del__ is fine for log lines or general cleanup, but for critical precise moments (e.g., closing files, releasing resources), use a with block instead.
