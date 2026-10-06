@@ -1,9 +1,13 @@
 1. Object-Oriented Programming Core Concepts
+
  * Class (The Engineering Drawing): A blueprint written once that defines how to construct objects.
  * Object / Instance (The Physical Part): A specific machine or part built from that drawing. One drawing can produce many independent instances, each with its own state.
  * Attributes (What the Machine Has): Variables attached to an object that store its state (e.g., tag name, max RPM, current speed, parts made).
  * Methods (What the Machine Does): Functions defined inside a class that operate on the object's attributes.
+
+
 2. Code Structure — class Lathe
+
 class Lathe:
     """A turning machine on the shop floor.""[span_5](start_span)"[span_5](end_span)
 
@@ -28,7 +32,9 @@ class Lathe:
         self.parts_made += 1[span_19](start_span)[span_19](end_span)
         return f"{self.tag} made part #{self.parts_made}[span_20](start_span)"[span_20](end_span)
 
+
 3. Creating Instances & Accessing Members
+
 # Instantiate two separate machine objects from one class blueprint
 L1 = Lathe("L-01")[span_21](start_span)[span_21](end_span)
 L2 = Lathe("L-02", max_rpm=3500)[span_22](start_span)[span_22](end_span)
@@ -44,6 +50,7 @@ L1.make_part()[span_27](start_span)[span_27](end_span)
 L2.make_part()        # Refused because L2's spindle is stopped[span_28](start_span)[span_28](end_span)!
 
 4. Demystifying self
+
  * Definition: self represents "which specific machine are we talking about?"
  * How It Works: When calling L1.make_part(), Python automatically passes L1 as the first argument (self).
  * Isolation Guarantee: Writing self.parts_made += 1 inside a method increments only that specific machine's counter and leaves other instances untouched.
