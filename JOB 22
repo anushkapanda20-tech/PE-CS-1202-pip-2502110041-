@@ -1,8 +1,12 @@
 1. Inheritance — The Base Class & Its Variants
+
 Instead of re-writing shared code (tags, running states, running hours) for every machine type (lathe, press, drill, grinder), Inheritance allows you to draw the parent family class once and specify only what makes each variant unique in child classes.
  * Base / Parent Class: Stores common attributes and methods shared across all machines.
  * Derived / Child Class: Inherits attributes/methods from the parent and adds or modifies its own specialized capabilities.
+
+
 2. Code Implementation — Base Class & Derived Classes
+
 # Parent Class (The Family Drawing)
 class Machine:
     def __init__(self, tag):
@@ -47,6 +51,7 @@ class Press(Machine):
         pass[span_17](start_span)[span_17](end_span)
 
 3. Key OOP Concepts in Job 22
+
 A. The super() Function
  * Purpose: Calls methods from the parent class inside the child class.
  * Why super().__init__(tag) Must Come First: The foundational base parts of the machine (tag, running status, hours) must exist before adding specialized components. Skipping this line leaves the child machine missing its basic framework.
