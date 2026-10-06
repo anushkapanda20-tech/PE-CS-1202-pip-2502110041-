@@ -1,0 +1,130 @@
+Job 4 — Blocks Become Text
+1. Scratch to Python
+Scratch Concept
+Python Equivalent
+Say
+print()
+Repeat
+for loop
+If
+if
+Set variable
+variable = value
+Change variable
+variable = variable + value
+Forever
+while True
+Ask and wait
+input()
+Wait
+time.sleep()
+2. print()
+The print() function displays information on the screen.
+print("Hello, PE!")
+Output:
+Hello, PE!
+You can also print variables:
+name = "Part A"
+print(name)
+3. for Loop
+A for loop is used when an operation needs to be repeated a known number of times.
+Syntax
+for variable in range(number):
+    statement
+Example
+for i in range(5):
+    print("Machine cycle")
+The statement runs 5 times.
+range(5) produces:
+0, 1, 2, 3, 4
+4. if Statement
+An if statement allows Python to make a decision.
+dia = 26
+
+if dia > 25:
+    print("Oversize")
+If dia > 25 is True, the message is printed.
+if-else
+dia = 24
+
+if dia > 25:
+    print("Oversize")
+else:
+    print("Acceptable")
+The program chooses between two possible paths.
+5. Variables
+A variable is a name used to store a value.
+count = 0
+diameter = 25.02
+part = "P101"
+Variables can store:
+Numbers
+Measurements
+Text
+Counters
+Results
+Changing a variable
+count = 0
+count = count + 1
+Now count is 1.
+6. input()
+input() allows a program to receive information from the user.
+size = input("Enter size: ")
+print(size)
+The value entered is stored in size.
+Important
+input() normally returns the entered value as a string.
+If a numerical value is required:
+size = float(input("Enter size: "))
+7. while Loop
+A while loop repeats a block as long as its condition is True.
+count = 0
+
+while count < 5:
+    print("Cycle")
+    count = count + 1
+The loop stops when count < 5 becomes False.
+Infinite loop
+while True:
+    print("Running")
+This continues indefinitely unless the program is stopped or contains a way to exit the loop.
+8. Indentation and Colon
+Python uses a colon : and indentation to define code blocks.
+if diameter > 25:
+    print("Reject")
+The indented print() belongs to the if block.
+Incorrect indentation can cause an error.
+Remember:
+Colon starts the block → Indentation defines the block.
+9. time.sleep()
+time.sleep() pauses program execution for a specified number of seconds.
+import time
+
+print("Start")
+time.sleep(2)
+print("End")
+The program waits 2 seconds before printing "End".
+10. Complete Example
+A simple production-style program can combine these concepts:
+import time
+
+count = 0
+
+for i in range(3):
+    diameter = float(input("Enter diameter: "))
+
+    if 24.95 <= diameter <= 25.05:
+        print("Part Accepted")
+    else:
+        print("Part Rejected")
+
+    count = count + 1
+    time.sleep(1)
+
+print("Parts checked:", count)
+This program:
+Repeats the inspection 3 times.
+Takes a diameter as input.
+Checks the tolerance using if-else.
+Counts the inspected parts.
+Waits for 1 second between inspections.
