@@ -1,0 +1,59 @@
+1. Inheritance — The Base Class & Its Variants
+Instead of re-writing shared code (tags, running states, running hours) for every machine type (lathe, press, drill, grinder), Inheritance allows you to draw the parent family class once and specify only what makes each variant unique in child classes.
+ * Base / Parent Class: Stores common attributes and methods shared across all machines.
+ * Derived / Child Class: Inherits attributes/methods from the parent and adds or modifies its own specialized capabilities.
+2. Code Implementation — Base Class & Derived Classes
+# Parent Class (The Family Drawing)
+class Machine:
+    def __init__(self, tag):
+        self.tag = tag[span_3](start_span)[span_3](end_span)
+        self.running = False[span_4](start_span)[span_4](end_span)
+        self.hours = 0[span_5](start_span)[span_5](end_span)
+
+    def start(self):
+        self.running = True
+        return f"{self.tag} started[span_6](start_span)"[span_6](end_span)
+
+    def stop(self):
+        self.running = False
+        return f"{self.tag} stopped[span_7](start_span)"[span_7](end_span)
+
+    def status(self):
+        return f"{self.tag}: running={self.running}[span_8](start_span)"[span_8](end_span)
+
+
+# Child Class Variant 1 (Lathe IS-A Machine)
+class Lathe(Machine):
+    def __init__(self, tag, max_rpm=2000):
+        super().__init__(tag)             # Build the shared parts FIRST[span_9](start_span)[span_9](end_span)
+        self.max_rpm = max_rpm            # Add what belongs to Lathe alone[span_10](start_span)[span_10](end_span)
+        self.parts = 0[span_11](start_span)[span_11](end_span)
+
+    def make_part(self):
+        if not self.running:
+            return "REFUSED: not running[span_12](start_span)"[span_12](end_span)
+        self.parts += 1[span_13](start_span)[span_13](end_span)
+        return f"{self.tag} made part #{self.parts}[span_14](start_span)"[span_14](end_span)
+
+    # Method Overriding: Replaces parent implementation with specialized version
+    def status(self):
+        return super().status() + f" | {self.parts} parts[span_15](start_span)"[span_15](end_span)
+
+
+# Child Class Variant 2 (Press IS-A Machine)
+class Press(Machine):
+    def stroke(self):
+        # Specific operation only presses do[span_16](start_span)[span_16](end_span)
+        pass[span_17](start_span)[span_17](end_span)
+
+3. Key OOP Concepts in Job 22
+A. The super() Function
+ * Purpose: Calls methods from the parent class inside the child class.
+ * Why super().__init__(tag) Must Come First: The foundational base parts of the machine (tag, running status, hours) must exist before adding specialized components. Skipping this line leaves the child machine missing its basic framework.
+B. Method Overriding
+ * When a child class defines a method with the exact same name as its parent (e.g., status()), Python executes the child's version instead.
+ * A child can extend parent behavior by combining super().status() with extra child-specific data.
+4. The "IS-A" Test for Inheritance
+To verify if inheritance is appropriate, use the "IS-A" test:
+ * Valid Inheritance ("IS-A"): "A Lathe IS A Machine" \rightarrow class Lathe(Machine):
+ * Invalid Inheritance ("HAS-A"): "A Lathe HAS A chuck" \rightarrow A chuck is an attribute, not a parent class. Connecting classes that fail this test creates incorrect family structures.
