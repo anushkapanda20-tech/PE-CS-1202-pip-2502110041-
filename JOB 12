@@ -1,0 +1,40 @@
+
+1. Digital Stopwatch — The datetime Module
+The datetime module is used to measure cycle times and code execution duration.
+Stopwatch Code Structure
+from datetime import datetime
+
+start = datetime.now()  # Record start time
+
+# ... work or code execution happens here ...
+
+end = datetime.now()    # Record end time
+
+cycle = end - start     # Subtracting datetime objects yields a timedelta (duration)
+print(cycle.total_seconds(), "s")
+
+Key Concepts
+ * datetime.now(): Captures the current timestamp.
+ * Time Arithmetic: Subtracting two datetime objects creates a timedelta duration object.
+ * .total_seconds(): Method used to convert the duration into seconds for time studies and performance reporting.
+2. Reading Sheets — Arrays (array)
+An array is a fixed, typed bin used to store multiple measurements under one variable name.
+Creating and Indexing an Array
+from array import array
+
+# Type indicator 'f' enforces floats only (one material type per bin)
+dias = array('f', [25.02, 24.98, 25.05])
+
+print(len(dias))   # Output: 3 (3 readings total)
+print(dias[0])     # Output: 25.02 (FIRST reading)
+print(dias[2])     # Output: 25.05 (THIRD reading — index 2)
+
+Array Features & Zero-Indexing
+ * Type Code 'f': Guarantees that the array stores floats only. It enforces strict material discipline—unlike lists, arrays hold one fixed data type.
+ * Zero-Indexing Rule: Python uses 0-based indexing because an index represents "how far from the start" the entry is:
+   * Index [0] is 0 steps from the start (the 1st reading).
+   * Index [1] is 1 step from the start (the 2nd reading).
+   * Index [2] is 2 steps from the start (the 3rd reading).
+3. Specifications & Analysis Habits
+ * Array Length: Use len(dias) to find the total count of elements in an array.
+ * Data Summary: When analyzing time study readings, compute min(), max(), and average to evaluate cycle consistency and performance limits.
