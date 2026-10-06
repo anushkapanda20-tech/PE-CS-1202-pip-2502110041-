@@ -1,0 +1,44 @@
+
+1. Anatomy of a Function (Jig)
+A function is like a shop fixture or jig: build it once, clamp in any input workpiece, and get back a processed part.
+The Four Parts of a Function
+ * def & Name: The function's unique identifier.
+ * Parameters: The clamps/inputs that accept values for the current run.
+ * Body: Indented lines of code that perform the actual operation.
+ * return Statement: Hands the finished output back to the calling code.
+def inspect(dia, lower=24.95, upper=25.05):  # Name & parameters with default settings
+    if dia > upper:
+        return "REWORK"                      # Return handed back
+    elif dia < lower:
+        return "SCRAP"
+    return "ACCEPT"
+
+2. Calling Functions: Arguments & Defaults
+ * Positional Arguments: Values passed in exact order.
+   inspect(25.02, 25.00, 25.04)  # Overrides defaults with tighter tolerances
+
+ * Default Values: Parameters pre-set with standard values if none are provided.
+   inspect(25.02)                 # Uses default lower=24.95 and upper=25.05
+
+ * Keyword Arguments: Specifying the parameter name explicitly when calling.
+   inspect(25.02, upper=25.01)    # Explicitly overrides only 'upper'
+
+3. Key Distinction: print vs. return
+ * print() is for Humans: Displays a output message on the screen, but hands back None to the program. You cannot store or use the result of a print() call in further calculations.
+ * return is for Programs: Hands back a real value/part that can be saved in a variable, fed into another function, or used in further code.
+> Rule of Thumb: If you ever want to do anything further with the result, you must use return.
+> 
+4. Scope — Local Variables
+ * Inside the Jig Stays Inside: Variables defined inside a function (such as counters or loop variables) are local to that function.
+ * Isolation Advantage: Local scope prevents functions from interfering with or overwriting variables in other parts of the program.
+def tally_up(codes):
+    total = 0      # 'total' lives ONLY inside tally_up
+    for c in codes:
+        total += 1
+    return total
+
+# Calling tally_up("D01", "D07") returns total, but variable 'total' isn't accessible directly outside.
+
+5. Key Takeaways
+ * Reusability: Functions eliminate duplicate logic across programs.
+ * Default Parameters: Provide flexible jigs—standard settings work automatically, but custom tolerances can be passed whenever needed.
