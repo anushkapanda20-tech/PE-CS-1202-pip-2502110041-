@@ -1,0 +1,116 @@
+Week 1 Debrief: Algorithms, Sequence, Loops, Conditions & Binary Search
+Core idea: Programming is about breaking a problem into logical steps and making the computer follow those steps correctly.
+1. Algorithm
+An algorithm is a finite, step-by-step procedure used to solve a problem.
+Example
+To find a faulty station:
+Start
+  ↓
+Check stations
+  ↓
+Narrow down possibilities
+  ↓
+Find faulty station
+  ↓
+Stop
+A good algorithm should be:
+Clear – each step is understandable.
+Ordered – steps follow a logical sequence.
+Finite – it eventually ends.
+Unambiguous – each instruction has one meaning.
+Efficient – it should avoid unnecessary work.
+2. Sequence
+A sequence means executing instructions in a particular order.
+Input
+  ↓
+Step 1
+  ↓
+Step 2
+  ↓
+Step 3
+  ↓
+Output
+For example, a manufacturing process may follow:
+Raw Material → Cutting → Drilling → Inspection → Finished Part
+Changing the order can produce a different or incorrect result.
+3. Loops
+A loop repeats a block of instructions.
+Instead of writing:
+print("Check")
+print("Check")
+print("Check")
+we can write:
+for i in range(3):
+    print("Check")
+Why use loops?
+Reduce repetitive code
+Save time
+Process large amounts of data
+Automate repeated operations
+Example: Checking 500 manufactured parts can be handled using a loop.
+4. if / else
+Conditions allow a program to make decisions.
+Syntax
+if condition:
+    statement
+else:
+    statement
+Example
+diameter = 25.02
+
+if 24.95 <= diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+Here, the program checks whether the diameter lies within the specified tolerance.
+Logic
+Condition is TRUE  → IF block
+Condition is FALSE → ELSE block
+5. Binary Search
+Binary search is an efficient searching technique in which the search space is repeatedly divided into two halves.
+Suppose there are 100 stations and exactly one is faulty.
+Instead of checking:
+1 → 2 → 3 → 4 → ... → 100
+we repeatedly divide the possibilities:
+100 stations
+      ↓
+     50
+   ↙    ↘
+ 25      25
+ ↓        ↓
+12/13   12/13
+      ↓
+   Target
+Each answer eliminates approximately half of the remaining possibilities.
+Why is it efficient?
+After each check:
+100 → 50 → 25 → 13 → 7 → 4 → 2 → 1
+Only 7 yes/no checks are enough for 100 possibilities because:
+2⁷ = 128 > 100
+6. Binary Search in Python
+A basic binary-search structure is:
+low = 1
+high = 100
+
+while low <= high:
+    mid = (low + high) // 2
+mid represents the middle position.
+Depending on the answer, we change either low or high to eliminate half of the search space.
+7. Connecting Everything
+The concepts from Jobs 1–3 work together:
+ALGORITHM
+    ↓
+SEQUENCE
+    ↓
+CONDITION
+    ↓
+DECISION
+    ↓
+LOOP / REPETITION
+    ↓
+OUTPUT
+For example, a quality-control program can:
+Take a measurement.
+Compare it with the allowed tolerance.
+Decide Accept/Reject.
+Repeat the process for every part.
