@@ -1,18 +1,11 @@
 1. The Error Collection (Named Exception Species)
+
 Poka-yoke translates to mistake-proofing—building error handling into programs so invalid inputs do not cause sudden crashes.
-| Exception Species | What It Really Means | Where You Met It / Example |
-|---|---|---|
-| TypeError | Two incompatible types (e.g., adding 25 + "30"). | Job 08 |
-| ValueError | Right type, but hopeless input (e.g., float("twentyfive")). | Work Order 03 |
-| NameError | Variable or function used before declaration. | Job 10 |
-| KeyError | Looking up a non-existent key in a dictionary. | Job 16 |
-| IndexError | Accessing a list position beyond its range. | Work Order 05 |
-| AttributeError | Method or property does not exist on that object (e.g., P.make_part()). | Job 22 |
-| ZeroDivisionError | Attempting to divide by zero (e.g., average of an empty batch). | Job 23 |
-> Reading Tracebacks: Read the last line first—that identifies the error species. Then check the line number to locate where the fault occurred.
-> 
+
+
 2. The Structure of a Guard (try / except / else / finally)
 try:
+
     # Only the risky line goes here
     dia = float(input("Diameter: "))[span_17](start_span)[span_17](end_span)
 except ValueError:
@@ -33,4 +26,4 @@ finally:
  * What it is: Writing a plain except: without specifying an exception class.
  * Why it's dangerous: A bare except: catches all errors—including typos, system interrupts, and logic mistakes. It hides underlying bugs permanently instead of resolving them safely.
 > Key Rule: A guard that hides problems is worse than no guard at all. Always name the species you expect.
-> 
+
