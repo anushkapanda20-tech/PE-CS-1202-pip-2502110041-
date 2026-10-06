@@ -1,4 +1,5 @@
 1. Multiple except Clauses
+
 You can stack multiple except blocks so that different exception species receive their own tailored recovery procedure.
  * Order Matters: Catch specific/narrow exceptions before broader ones. If a broad parent exception comes first, it will catch errors intended for more specific clauses underneath.
 try:
@@ -11,6 +12,7 @@ except IndexError:
     log_warning("Incomplete log line")
 
 2. Pulling the Andon Cord — Raising Exceptions (raise)
+
 Just as an assembly line worker pulls the Andon cord to stop production when a defect occurs, your program uses raise to intentionally throw an error the moment a violation is detected.
 Creating Custom Exception Classes
 Custom exceptions inherit from built-in error classes like ValueError using the "IS-A" test (Job 22):
