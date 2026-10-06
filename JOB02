@@ -1,1 +1,374 @@
+🐍 Job 2 — Logic You Can Touch
 
+Python Notes | Loops, Conditions & Variables
+
+> Core idea: Programs become useful when they can repeat actions, make decisions, and store information.
+
+
+
+
+---
+
+1. Loops
+
+A loop repeats a block of code multiple times.
+
+Without a loop:
+
+print("Cycle")
+print("Cycle")
+print("Cycle")
+
+With a loop:
+
+for i in range(3):
+    print("Cycle")
+
+Why use loops?
+
+Avoid writing repetitive code
+
+Save time and effort
+
+Process multiple parts/data items
+
+Automate repeated operations
+
+
+Manufacturing example:
+If a machine performs the same stamping operation on 500 blanks, a loop can represent those 500 cycles.
+
+
+---
+
+2. for Loop
+
+A for loop is generally used when the number of repetitions is known.
+
+Syntax
+
+for variable in range(number):
+    statement
+
+Example
+
+for i in range(5):
+    print("Machine cycle", i)
+
+range(5) produces:
+
+0  1  2  3  4
+
+So the loop runs 5 times.
+
+Example: Counting Parts
+
+for part in range(1, 6):
+    print("Processing part", part)
+
+Output:
+
+Processing part 1
+Processing part 2
+Processing part 3
+Processing part 4
+Processing part 5
+
+
+---
+
+3. Conditions
+
+A condition allows a program to make a decision.
+
+The most common conditional statement is if.
+
+if condition:
+    statement
+
+If the condition is True, the statement runs.
+
+Example
+
+temperature = 80
+
+if temperature > 75:
+    print("High temperature")
+
+
+---
+
+4. if-else
+
+if-else provides two possible paths.
+
+if condition:
+    statement_1
+else:
+    statement_2
+
+Example: Quality Inspection
+
+diameter = 25.02
+
+if diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+
+The computer checks the diameter and chooses the appropriate result.
+
+
+---
+
+5. Go / No-Go Inspection
+
+Suppose a shaft has a specification:
+
+25.00 ± 0.05 mm
+
+Therefore:
+
+Minimum = 24.95 mm
+Maximum = 25.05 mm
+
+A part is accepted when:
+
+24.95 ≤ diameter ≤ 25.05
+
+Python:
+
+diameter = 25.02
+
+if 24.95 <= diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+
+This is an example of using programming for quality control.
+
+
+---
+
+6. Variables
+
+A variable is a named storage location for a value.
+
+diameter = 25.02
+count = 10
+name = "Part A"
+
+Here:
+
+diameter → stores a measurement
+
+count → stores a number
+
+name → stores text
+
+
+The value of a variable can change:
+
+count = 0
+count = count + 1
+
+Now count becomes 1.
+
+
+---
+
+7. Variables + Loops
+
+Variables become especially useful inside loops.
+
+count = 0
+
+for i in range(5):
+    count = count + 1
+
+print(count)
+
+Output:
+
+5
+
+Here, count acts as a counter for the number of completed cycles.
+
+
+---
+
+8. Comparison Operators
+
+Conditions use comparison operators to compare values.
+
+Operator	Meaning
+
+==	Equal to
+!=	Not equal to
+>	Greater than
+<	Less than
+>=	Greater than or equal to
+<=	Less than or equal to
+
+
+Example
+
+marks = 75
+
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")
+
+
+---
+
+9. Scratch → Python
+
+The logic used in Scratch has direct equivalents in Python:
+
+Scratch	Python
+
+Repeat	for / while
+If	if
+If–else	if ... else
+Variable	x = value
+Ask	input()
+Comparison	<, >, ==, etc.
+
+
+The logic stays the same; only the way we write it changes.
+
+
+---
+
+10. Important Takeaways
+
+🔁 Loop
+
+Repeats an operation.
+
+🔀 Condition
+
+Makes a decision.
+
+📦 Variable
+
+Stores information.
+
+Together:
+
+VARIABLE → stores data
+     ↓
+CONDITION → makes decisions
+     ↓
+LOOP → repeats operations
+
+⭐ Remember
+
+> A good program doesn't just perform instructions — it knows when to repeat
+3. Conditions
+A condition allows a program to make a decision.
+The most common conditional statement is if.
+if condition:
+    statement
+If the condition is True, the statement runs.
+Example
+temperature = 80
+
+if temperature > 75:
+    print("High temperature")
+4. if-else
+if-else provides two possible paths.
+if condition:
+    statement_1
+else:
+    statement_2
+Example: Quality Inspection
+diameter = 25.02
+
+if diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+The computer checks the diameter and chooses the appropriate result.
+5. Go / No-Go Inspection
+Suppose a shaft has a specification:
+25.00 ± 0.05 mm
+Therefore:
+Minimum = 24.95 mm
+Maximum = 25.05 mm
+A part is accepted when:
+24.95 ≤ diameter ≤ 25.05
+Python:
+diameter = 25.02
+
+if 24.95 <= diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+This is an example of using programming for quality control.
+6. Variables
+A variable is a named storage location for a value.
+diameter = 25.02
+count = 10
+name = "Part A"
+Here:
+diameter → stores a measurement
+count → stores a number
+name → stores text
+The value of a variable can change:
+count = 0
+count = count + 1
+Now count becomes 1.
+7. Variables + Loops
+Variables become especially useful inside loops.
+count = 0
+
+for i in range(5):
+    count = count + 1
+
+print(count)
+Output:
+5
+Here, count acts as a counter for the number of completed cycles.
+8. Comparison Operators
+Conditions use comparison operators to compare values.
+Operator
+Meaning
+==
+Equal to
+!=
+Not equal to
+>
+Greater than
+<
+Less than
+>=
+Greater than or equal to
+<=
+Less than or equal to
+Example
+marks = 75
+
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")
+9. Scratch → Python
+The logic used in Scratch has direct equivalents in Python:
+Scratch
+Python
+Repeat
+for / while
+If
+if
+If–else
+if ... else
+Variable
+x = value
+Ask
+input()
+Comparison
+<, >, ==, etc.
+The logic stays the same; only the way we write it changes.
