@@ -1,0 +1,41 @@
+
+1. Lambda Functions — The Disposable Shim
+A lambda is a small, one-line unnamed function created right where it is needed and thrown away afterwards.
+Sorting with Lambda (key= Parameter)
+lambda functions are most commonly used to custom-sort collections of tuples or complex data:
+parts = [("PE-0137", 25.02), ("PE-0201", 24.90), ("PE-0345", 25.09)]
+
+# Sort by diameter (index 1), smallest first
+sorted(parts, key=lambda p: p[1])[span_5](start_span)[span_5](end_span)
+
+# Sort by diameter (index 1), biggest first
+sorted(parts, key=lambda p: p[1], reverse=True)[span_6](start_span)[span_6](end_span)
+
+# Sort by part number (index 0)
+sorted(parts, key=lambda p: p[0])[span_7](start_span)[span_7](end_span)
+
+# Find the part furthest from nominal tolerance (25.00)
+worst = max(parts, key=lambda p: abs(p[1] - 25.00))[span_8](start_span)[span_8](end_span)
+
+ * When NOT to use a Lambda: If a lambda function requires a comment to explain what it does, use a named function (def) instead. Lambdas should be simple enough that reading them is self-explanatory.
+2. Recursion — Processing Nested Structures
+Recursion occurs when a procedure calls itself to break down nested sub-assemblies (like a Bill of Materials / BOM explosion).
+The Two Rules of Safe Recursion
+To prevent infinite loops and RecursionError (Traceback Species #6), every recursive function must follow two rules:
+ * Base Case: A simple condition where the function returns a value directly without making another recursive call (e.g., a raw part that cannot be broken down further).
+ * Step Toward the Base Case: Each recursive call must operate on a simpler or smaller subset of the original input.
+Code Example: Counting Assembly Parts
+def count_parts(item):
+    # RULE 1: Base Case (A raw part with no children returns its own quantity)
+    if item["children"] == []:
+        return item["qty"][span_15](start_span)[span_15](end_span)
+    
+    # RULE 2: Step Toward Base Case (Iterate through simpler child sub-assemblies)
+    total = 0
+    for child in item["children"]:
+        total += count_parts(child)[span_16](start_span)[span_16](end_span)  # Recursive call
+    return total
+
+3. Key Takeaways
+ * lambda Usage: Think of lambda as a quick custom gauge handed directly to functions like sorted(), min(), or max().
+ * RecursionError: Occurs when a recursive call lacks a valid base case or fails to step closer to it, causing Python to hit its maximum call stack depth.
