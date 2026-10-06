@@ -1,13 +1,19 @@
 
 1. Modules & Importing — The Tool Crib System
+
 In Python, thousands of ready-made tools live in modules. The import keyword acts as the requisition slip to sign out tools for your program.
+
 2. Traceback Species #3 — NameError
- * Cause: Occurs when attempting to use a tool/function that was never signed out or defined (e.g., calling sqrt(50) without importing it or without using math.sqrt()).
+
+* Cause: Occurs when attempting to use a tool/function that was never signed out or defined (e.g., calling sqrt(50) without importing it or without using math.sqrt()).
  * Error Diagnosis Comparison:
    * TypeError: Wrong materials welded together (e.g., adding int to str).
    * ValueError: Hopeless input value provided to a function.
    * NameError: Tool not drawn/imported or variable name unrecognized.
+
+
 3. Key Toolboxes & Functions
+
 Math Toolkit (math)
  * Ceiling Thinking (math.ceil): Rounds up to the next integer.
    * Shop Logic: "Boxes I must order". For 137 / 12 = 11.41, math.ceil(137/12) gives 12 boxes needed.
