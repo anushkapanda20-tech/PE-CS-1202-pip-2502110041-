@@ -1,0 +1,44 @@
+1. What is Regular Expression (Regex)?
+ * A regular expression acts like a profile gauge for text—it describes the shape a valid part code, reading, or date must have and checks string lines against it.
+ * When to use: Used when standard .split() gives up or breaks due to inconsistent, messy text formats.
+2. The Gauge Tokens (Basic Regex Syntax)
+ * \d
+   * Meaning: Any single digit (0–9).
+   * Example: \d\d matches 42.
+ * [A-Z]
+   * Meaning: Any single capital letter.
+   * Example: [A-Z]\d matches L1.
+ * {4}
+   * Meaning: Exactly four of the token directly preceding it.
+   * Example: \d{4} matches 0137.
+ * +
+   * Meaning: One or more of the token directly preceding it.
+   * Example: \d+ matches 7 and 1240.
+ * ^ and $
+   * Meaning: Anchors representing the start (^) and end ($) of the string.
+ * \.
+   * Meaning: A literal full stop (period).
+   * Note: A bare . means "any character", so it must be escaped with \ to match an actual dot.
+3. Core re Module Functions
+import re
+
+# 1. Full Match Validation (Checks if the ENTIRE string fits the gauge)
+re.fullmatch(r"PE-\d{4}", "PE-0137")  # Returns a match object
+
+# 2. Extract All Matches
+re.findall(r"\d+\.\d+", line)         # Finds every decimal number in the line
+
+# 3. Regex Split
+re.split(r"\s+", line)                # Splits line on any sequence of whitespace
+
+# 4. Regex Substitution
+re.sub(r"\s+", " ", line)              # Squashes runs of whitespace down to a single space
+
+4. Key Rules and Pitfalls
+ * The Raw String r"" Prefix:
+   * Always prefix regex strings with r (e.g., r"\d+").
+   * This tells Python to pass backslashes directly to the regex engine without trying to interpret escape characters first.
+ * The Importance of Anchors (^ and $):
+   * Without ^...$, you are asking "Does this line contain something shaped like a part code?" (e.g., matching inside "XPE-0137Z").
+   * With ^...$, you are asking "Is the entire line exactly a part code?"
+   * Most regex bugs in inspection scripts are caused by a missing anchor.
