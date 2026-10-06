@@ -1,0 +1,67 @@
+
+1. The String Toolset
+Formatting is not decoration—it provides legibility and safety for shop-floor reporting.
+ * .strip()
+   * What it does: Trims whitespace from both ends of a string.
+   * Shop use case: Used to clean every field of every log line.
+ * .upper() and .lower()
+   * What it does: Performs case conversion.
+   * Shop use case: Standardizes variations like "night", "NIGHT", and "Night" into one format.
+ * .replace(a, b)
+   * What it does: Swaps every occurrence of substring a with b.
+   * Shop use case: Useful for cleaning stray commas out of raw numbers.
+ * .startswith(x)
+   * What it does: Performs a boolean (True/False) prefix test.
+   * Shop use case: Filtering all "PE-" part codes.
+ * .split(sep)
+   * What it does: Converts text into a list of fields based on a separator.
+   * Shop use case: Log line parsing.
+ * sep.join(list)
+   * What it does: Converts a list of fields into a single string using a separator.
+   * Shop use case: Writing a CSV row (the reverse of .split()).
+ * .zfill(n)
+   * What it does: Pads a string with leading zeros up to total length n.
+   * Shop use case: Formatting part numbers (e.g., "7".zfill(4) becomes '0007').
+ * .count(x) and .find(x)
+   * What it does: Reports how many times x occurs or where it is located.
+   * Shop use case: Quick validation checks before parsing text.
+Round-Trip Conversion: .split() and .join()
+.split() takes a delimited text line apart into a list, while sep.join() joins a list of strings together with a separator.
+fields = ["PE-0137", "25.02", "ACCEPT"]
+
+# Join list into CSV string
+row = ",".join(fields)      # 'PE-0137,25.02,ACCEPT'
+
+# Split CSV string back into list
+back = row.split(",")        # ['PE-0137', '25.02', 'ACCEPT']
+
+2. Decoding Format Specs (f"{value:>10.2f}")
+Format specifications align and structure text into readable report columns.
+ * Structure: f"{value: [alignment][width][,][.precision][type]}"
+ * Alignment (> / < / ^):
+   * > aligns content to the right (used for numbers).
+   * < aligns content to the left (used for labels).
+   * ^ centers content.
+ * Width (10): Sets the total width allocated for the column.
+ * Grouping (,): Adds comma thousands separators (e.g., 1,240.50).
+ * Precision (.2): Displays exactly two decimal places.
+ * Type (f / d / %):
+   * f specifies a fixed-point floating-number.
+   * d specifies a whole number integer.
+   * % displays the value as a percentage.
+3. Practical Format Spec Examples
+ * Left-Aligned Label:
+   f"{tag:<12}"       # Label left-aligned, width 12
+
+ * Right-Aligned Integer:
+   f"{n:>8d}"         # Whole number right-aligned, width 8
+
+ * Formatted Float with Thousands Separator:
+   f"{total:>12,.2f}" # Right-aligned, width 12, commas for thousands, 2 decimals
+
+ * Percentage Format:
+   f"{pct:>6.1%}"     # Converts 0.8375 -> ' 83.8%'
+
+4. Key Takeaways
+ * Alignment Rule: Numbers should align right (>) so decimal points stack vertically; text labels should align left (<).
+ * Reversibility: .split() and .join() act as complementary operations for converting between text rows and structured list items.
