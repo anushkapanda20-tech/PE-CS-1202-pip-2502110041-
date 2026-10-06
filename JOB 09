@@ -1,0 +1,35 @@
+
+1. Conditional Logic — The if / elif / else Ladder
+The Three-Bin Sort Example
+Used to sort parts into distinct categories based on measurements (e.g., target specification: 25.00 \pm 0.05 \text{ mm}):
+dia = float(input("Measured diameter: "))
+
+if dia > 25.05:
+    print("REWORK")   # Oversize: metal can come off
+elif dia < 24.95:
+    print("SCRAP")    # Undersize: metal can never be added back
+else:
+    print("ACCEPT")   # Within spec: ship it
+
+Key Rules of the Ladder
+ * Top-Down Evaluation: The conditions are evaluated from top to bottom, and exactly one branch runs.
+ * elif vs. Two Separate ifs:
+   * An if / elif / else block acts as a single multi-way decision ladder.
+   * Two separate if statements act as two independent checks that can both fire.
+ * else Needs No Condition: The else branch acts as the catch-all bin for anything that passed through the previous checks without matching.
+2. Control Flow & Loops
+Choosing the Right Loop
+ * for Loop: Use when the iteration count is known in advance (e.g., inspecting a fixed batch of 10 parts).
+ * while Loop: Use when the iteration count is unknown (e.g., continuous measurement until the gauge reads OK).
+Loop Flow Control
+ * break: Instantly terminates the loop early (e.g., stopping the batch immediately when the first defective part is found).
+ * continue: Skips the remaining code in the current iteration and moves directly to the next part.
+3. Syntax Requirements & Common Defects to Spot
+Mandatory Syntax Rules
+ * Colons (:): Every if, elif, else, for, and while line must end with a colon :.
+ * Indentation: The code block belonging inside a branch or loop must be indented.
+Four Classic Bugs to Avoid
+ * Missing Colon: Forgetting the : at the end of a conditional or loop statement line.
+ * Assignment (=) Instead of Comparison (==): Using = (assign value) instead of == (check equality).
+ * Missing Indentation: Unindented code bodies after a condition or loop header.
+ * Infinite Loops in while: A while loop whose control variable is never updated inside the body.
