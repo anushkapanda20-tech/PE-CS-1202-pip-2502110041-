@@ -1,0 +1,31 @@
+1. Encapsulation — Fitting the Guards
+Without guards, anyone can bypass rules by writing directly to an attribute (e.g., L1.rpm = 99999 bypassing the safety check in start()). Encapsulation protects machine state so operations must go through safe control panel methods.
+2. Code Implementation — class Lathe with Guards
+class Lathe:
+    def __init__(self, tag, max_rpm=2000):
+        self.tag = tag                  # Public attribute[span_8](start_span)[span_8](end_span)
+        self._max_rpm = max_rpm          # Protected attribute (convention)[span_9](start_span)[span_9](end_span)
+        self.__rpm = 0                  # Private attribute (hidden)[span_10](start_span)[span_10](end_span)
+        self.__parts = 0                # Private attribute (hidden)[span_11](start_span)[span_11](end_span)
+
+    # Control panel button with built-in validation
+    def start(self, rpm):
+        if not 0 <= rpm <= self._max_rpm:
+            return "REFUSED: outside rated range[span_12](start_span)"[span_12](end_span)
+        self.__rpm = rpm                # Only internal code touches the private spindle state[span_13](start_span)[span_13](end_span)
+        return "running[span_14](start_span)"[span_14](end_span)
+
+    # Getter method: Reports status without exposing raw state variables
+    def status(self):
+        return {"tag": self.tag, "rpm": self.__rpm, "parts": self.__parts}[span_15](start_span)[span_15](end_span)
+
+3. How Private Attributes Work (Name Mangling)
+ * Direct Access Attempt: Writing L1.__rpm = 99999 creates a new, unrelated attribute called __rpm on L1; it does not overwrite the internal private variable.
+ * True Internal Name: Python renames double-underscore attributes internally to _ClassName__attribute (e.g., _Lathe__rpm).
+ * True Override (Name Mangling Bypass): Accessing L1._Lathe__rpm reaches the actual private variable.
+> Python's Philosophy ("We are all consenting adults"): Double underscores do not lock the door—they move the handle somewhere awkward. Guards prevent accidental misuse, but an operator who explicitly types _Lathe__rpm intentionally removes the guard.
+> 
+4. Abstraction — The Control Panel
+ * What the Operator Sees: Clean control panel interfaces like L1.start(1200) or L1.make_part().
+ * What's Behind the Panel: Complex internal wiring, validation conditions, and hidden private states (e.g., spindle ramp curves, coolant interlocks).
+ * Key Benefit: Abstraction hides complex internal mechanics and provides a simplified, reliable interface to control the system.
