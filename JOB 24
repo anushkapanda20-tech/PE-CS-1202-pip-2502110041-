@@ -1,0 +1,41 @@
+1. Multiple except Clauses
+You can stack multiple except blocks so that different exception species receive their own tailored recovery procedure.
+ * Order Matters: Catch specific/narrow exceptions before broader ones. If a broad parent exception comes first, it will catch errors intended for more specific clauses underneath.
+try:
+    process_record(line)
+except ValueError:
+    # Handles invalid data formats
+    log_warning("Bad numerical format")
+except IndexError:
+    # Handles missing columns/fields
+    log_warning("Incomplete log line")
+
+2. Pulling the Andon Cord — Raising Exceptions (raise)
+Just as an assembly line worker pulls the Andon cord to stop production when a defect occurs, your program uses raise to intentionally throw an error the moment a violation is detected.
+Creating Custom Exception Classes
+Custom exceptions inherit from built-in error classes like ValueError using the "IS-A" test (Job 22):
+# Custom exception class inheriting from ValueError ("SpecViolation IS-A ValueError")
+class SpecViolation(ValueError):
+    """A reading outside the drawing's tolerance.""[span_6](start_span)"[span_6](end_span)
+
+def check(dia, lower=24.95, upper=25.05):
+    if not isinstance(dia, (int, float)):
+        raise TypeError(f"diameter must be a number, got {type(dia).__name__}")[span_7](start_span)[span_7](end_span)
+    if not lower <= dia <= upper:
+        raise SpecViolation(f"{dia} outside [{lower}-{upper}]")  # Pulling the Andon cord[span_8](start_span)[span_8](end_span)!
+    return "ACCEPT[span_9](start_span)"[span_9](end_span)
+
+Catching Custom Exceptions (as e)
+Using as e captures the exception instance to extract its defect report message:
+try:
+    check(25.40)[span_11](start_span)[span_11](end_span)
+except SpecViolation as e:
+    print("Quarantine:", e)  # Output: Quarantine: 25.4 outside [24.95-25.05][span_12](start_span)[span_12](end_span)
+
+> Why Inherit from Built-in Exceptions? Inheriting from ValueError guarantees that code already written to catch standard ValueErrors will automatically catch your custom SpecViolation as well.
+
+3. Engineering Judgment: Log & Continue vs. Stop the Line
+A robust program does not mean one that never fails—it fails in the right place, loudly, with the rest of the production line still running safely.
+4. Key Takeaways
+ * Raise Instantly: Use raise the moment your code detects invalid conditions—not three functions later when evidence is lost.
+ * Selective Catching: Decide intentionally which faults your program should handle silently and which faults it should refuse to handle and let crash.
