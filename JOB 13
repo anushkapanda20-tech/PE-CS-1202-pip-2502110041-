@@ -1,5 +1,6 @@
 
 1. Lists — The Mutable Parts Bin
+
 While a string is an engraved nameplate (immutable), a list is a parts bin on the bench (mutable). It allows you to modify, add, remove, and reorder elements in-place.
 Creation & Heterogeneous Data Types
  * Square Brackets ([]): Define a list.
@@ -11,12 +12,17 @@ Mutability Example
 Item assignment succeeds on a list where it fails on a string:
 bin[0] = 25.01  # Modifies the first element directly[span_8](start_span)[span_8](end_span)
 
-3. Key Distinction: pop() vs remove()
+
+2. Key Distinction: pop() vs remove()
+
  * pop() operates by POSITION (Address):
    * Removes an item based on its index location (e.g., bin.pop(0) removes whatever is at slot 0).
  * remove() operates by IDENTITY (Value):
    * Searches for and removes a specified value (e.g., bin.remove(24.98) finds and removes 24.98).
  * Index Renumbering Warning: After any removal (pop or remove), all subsequent items shift down, and their addresses/indices renumber automatically.
-4. Key Takeaways
+
+
+3. Key Takeaways
+
  * Shared String Rules: Indexing, slicing (start:stop with start included, stop excluded), and len() work on lists identically to strings.
  * In-Place Modification: Methods like .append(), .insert(), .sort(), and .reverse() modify the bin directly in memory rather than returning a new list.
