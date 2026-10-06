@@ -1,0 +1,63 @@
+Deeper Blocks, First MIT: Declarative & Imperative Knowledge
+1. Two Types of Knowledge
+In programming, a problem can be described in two different ways:
+Declarative Knowledge — “WHAT”
+Describes what is true or what the desired result should be, without explaining how to achieve it.
+Example:
+“The shaft diameter is 25.00 ± 0.05 mm.”
+This tells us the required specification, but not how to manufacture the shaft.
+Imperative Knowledge — “HOW”
+Describes the steps or instructions needed to achieve a result.
+Example:
+Face the end
+→ Rough turn to 25.4 mm
+→ Finish turn to 25.05 mm
+→ Grind to size
+This is a process or route sheet that tells us exactly what to do.
+2. Declarative vs Imperative
+Declarative
+Imperative
+Describes what
+Describes how
+States a fact/specification
+Gives a procedure
+Focuses on the result
+Focuses on the steps
+Example: diameter = 25 mm
+Example: steps to obtain 25 mm
+Easy way to remember:
+Declarative = WHAT
+Imperative = HOW
+3. Programming as a Process Plan
+A computer has no common sense. It needs instructions that are precise and unambiguous.
+For example:
+Specification (WHAT):
+Finished shaft diameter = 25 mm
+Process plan (HOW):
+Measure diameter
+→ Compare with specification
+→ Accept if within tolerance
+→ Reject otherwise
+Similarly, a Python program is a set of precise instructions telling the computer how to perform a task.
+4. Python Example
+A specification can be represented as a condition:
+diameter = 25.02
+
+if 24.95 <= diameter <= 25.05:
+    print("Accept")
+else:
+    print("Reject")
+Here:
+Specification: 24.95 ≤ diameter ≤ 25.05
+Process: Python checks the diameter.
+Output: Accept or Reject
+5. Spec vs Process Plan
+SPEC
+A specification tells us the required result.
+“The part must have a diameter of 25.00 ± 0.05 mm.”
+PROCESS PLAN
+A process plan tells us how to achieve that result.
+“Turn → Finish → Grind → Inspect.”
+In programming:
+SPECIFICATION = What should be true?
+PROCESS PLAN  = How will we make it true?
